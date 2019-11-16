@@ -1,6 +1,6 @@
 const canvas = document.getElementById("jsCanvas");
 var ctx;
-const col_btn = document.getElementById("jsColors");
+const colors = document.getElementsByClassName("jsColor");
 
 canvas.width = 500;
 canvas.height = 500;
@@ -21,14 +21,17 @@ function init() {
     ctx.lineWidth = 2.5;
   }
 
-  if (col_btn) {
-    col_btn.addEventListener("mousedown", onMouseSelect);
+  if (colors) {
+    console.log(Array.from(colors));
+    Array.from(colors).forEach(color =>
+      color.addEventListener("click", handleColorClick)
+    );
   }
 }
 
-function onMouseSelect(event) {
-  const x = event.offsetX;
-  const y = event.offsetY;
+function handleColorClick(event) {
+  const col = event.target.style.backgroundColor;
+  ctx.strokeStyle = col;
 }
 
 function onMouseMove(event) {
