@@ -28,6 +28,7 @@ function init() {
 
 function onMouseSelect(event) {
   const x = event.offsetX;
+  const y = event.offsetY;
 }
 
 function onMouseMove(event) {
